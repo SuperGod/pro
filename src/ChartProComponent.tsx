@@ -16,7 +16,9 @@ import { createSignal, createEffect, onMount, Show, onCleanup, startTransition, 
 
 import {
   init, dispose, utils, Nullable, Chart, OverlayMode, Styles,
-  TooltipFeaturePosition, ActionType, PaneOptions, Indicator, DomPosition, FormatDateType
+  TooltipFeaturePosition, ActionType, PaneOptions, Indicator, DomPosition, FormatDateType,
+  LineType,
+  PolygonType
 } from 'klinecharts'
 
 import lodashSet from 'lodash/set'
@@ -387,99 +389,6 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
   createEffect(() => {
     const t = theme()
     widget?.setStyles(t)
-    const color = t === 'dark' ? '#929AA5' : '#76808F'
-    widget?.setStyles({
-      indicator: {
-        tooltip: {
-          features: [
-            {
-              id: 'visible',
-              position: TooltipFeaturePosition.Middle,
-              marginLeft: 8,
-              marginTop: 7,
-              marginRight: 0,
-              marginBottom: 0,
-              paddingLeft: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              iconFont:{
-                content: '\ue903',
-                family: 'icomoon',
-              },
-              size: 14,
-              color: color,
-              activeColor: color,
-              backgroundColor: 'transparent',
-              activeBackgroundColor: 'rgba(22, 119, 255, 0.15)'
-            },
-            {
-              id: 'invisible',
-              position: TooltipFeaturePosition.Middle,
-              marginLeft: 8,
-              marginTop: 7,
-              marginRight: 0,
-              marginBottom: 0,
-              paddingLeft: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              iconFont:{
-                content: '\ue901',
-                family: 'icomoon',
-              },
-              size: 14,
-              color: color,
-              activeColor: color,
-              backgroundColor: 'transparent',
-              activeBackgroundColor: 'rgba(22, 119, 255, 0.15)'
-            },
-            {
-              id: 'setting',
-              position: TooltipFeaturePosition.Middle,
-              marginLeft: 6,
-              marginTop: 7,
-              marginBottom: 0,
-              marginRight: 0,
-              paddingLeft: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              iconFont:{
-                content: '\ue902',
-                family: 'icomoon',
-              },
-              size: 14,
-              color: color,
-              activeColor: color,
-              backgroundColor: 'transparent',
-              activeBackgroundColor: 'rgba(22, 119, 255, 0.15)'
-            },
-            {
-              id: 'close',
-              position: TooltipFeaturePosition.Middle,
-              marginLeft: 6,
-              marginTop: 7,
-              marginRight: 0,
-              marginBottom: 0,
-              paddingLeft: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              iconFont:{
-                content: '\ue900',
-                family: 'icomoon',
-              },
-              size: 14,
-              color: color,
-              activeColor: color,
-              backgroundColor: 'transparent',
-              activeBackgroundColor: 'rgba(22, 119, 255, 0.15)'
-            }
-          ]
-        }
-      }
-    })
   })
 
   createEffect(() => {
@@ -634,3 +543,4 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
 }
 
 export default ChartProComponent
+
